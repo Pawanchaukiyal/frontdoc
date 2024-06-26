@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { server } from "../../constants/config";
+
 
 const AppointmentForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -34,7 +36,7 @@ const AppointmentForm = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       const { data } = await axios.get(
-        "http://localhost:4000/api/v1/user/doctors",
+        `${server}/api/v1/user/doctors`,
         { withCredentials: true }
       );
       setDoctors(data.doctors);

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { Context } from "../main";
+import { server } from "../../constants/config";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -23,7 +24,7 @@ const Register = () => {
     try {
       await axios
         .post(
-          "http://localhost:4000/api/v1/user/patient/register",
+          `${server}/api/v1/user/patient/register`,
           { firstName, lastName, email, phone, nic, dob, gender, password },
           {
             withCredentials: true,
